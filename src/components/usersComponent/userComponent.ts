@@ -12,7 +12,6 @@ export default defineComponent({
 
         //Funcion que al activarse el evento "click" lleva al usuario al marcador de cualquier usuario registrado previamente en la app
         const goCoords = (coords: any) => {
-            console.log(coords)
             const [lng, lat] = coords;
             mapa.value?.flyTo({
                 center: [lng, lat],
