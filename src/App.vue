@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Mapa</router-link> |
+    <router-link to="/form">Formulario</router-link>
   </div>
   <router-view/>
 </template>
@@ -12,7 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000000;
 }
 
 #nav {
@@ -21,10 +21,10 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ae00ff;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #25043b;
 }
 </style>
