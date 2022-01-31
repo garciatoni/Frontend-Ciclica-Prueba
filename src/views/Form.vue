@@ -89,6 +89,7 @@ export default {
         }
         //Commit a la mutacion mediante mi store.
         setUser(formData);
+        setError(false)
       }else{
         setError(true)
       }
