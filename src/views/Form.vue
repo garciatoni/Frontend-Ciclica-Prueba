@@ -79,8 +79,11 @@ export default {
     /*Cuando el formulario hace el submit se hace el commit: "SetTitulo", esta cambia el valor de "titulo" del state por el nuevo valor.
     Tambien hace el commit: 'setMensaje' para avisar al usuario que su cambio ha sido satisfactorio */
     const SetTitulo = () =>{
-      setMensaje('titulo')
-      setTitulo(titulo.value)
+      //Pequeña validación
+      if(titulo.value != ""){
+        setMensaje('titulo')
+        setTitulo(titulo.value)
+      }
     }
 
     /*Funcion que llamara al commit: 'setUser' y 'setMensaje', para añadir un nuevo usuario al state y avisar al usuario. 
