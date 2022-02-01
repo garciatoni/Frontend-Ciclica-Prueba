@@ -5,9 +5,9 @@ export interface PlacesState {
     userLocation?:[number, number];
     titulo: string;
     users: any;
-    mapa?: mapboxgl.Map;
+    mapa: any; //Guardo el mapa en el state por si necesito usarlo en otro componente que no sea el componente del mapa
     marcadores: mapboxgl.Marker[];
-    error: boolean;
+    mensaje: string;
 }
 
 function state(): PlacesState {
@@ -30,10 +30,16 @@ function state(): PlacesState {
           ],
         mapa: undefined,
         marcadores: [],
-        error: false,
+        mensaje: '',
 
 
     }
 }
+
+/** Defino todas mis variables del state.
+ * He optado por guardar a los usuarios como un array en el store para luego mostrarlos en el mapa de manera sencila, 
+ * en un proyecto que tenga que salir a produción se usaria una base de datos (mongodb, firebase, etc.).
+ */
+
 
 export default state;

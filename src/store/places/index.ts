@@ -15,5 +15,5 @@ const placesModule: Module<PlacesState, StateInterface> = {
     state
 }
 
-
+//El indice de mi store, donde defino: actions, getters, mutaciones y state
 export default placesModule;

@@ -12,6 +12,9 @@ if(!navigator.geolocation){
     alert('El navegador no soporta la Geolocalizacion.')
     throw new Error('El navegador no soporta la Geolocalizacion.')
 }
+//Si el navegador no acepta o soporta la geolocalizacion no se carga la app
+/*He creido conveniente hacerlo asi debido al tipo de app que es. Un mapa corriente que muestre la posición de una 
+tienda o una superficie no necesitaria cargar la geolocalizacion*/
 
 
 createApp(App).use(store).use(router).mount('#app')

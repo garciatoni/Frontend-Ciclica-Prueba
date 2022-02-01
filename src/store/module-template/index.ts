@@ -15,5 +15,6 @@ const exampleModule: Module<ExampleStateInterface, StateInterface> = {
     state
 }
 
+//Plantilla que uso para cambiar vuex con typescript
 
 export default exampleModule;

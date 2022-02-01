@@ -1,5 +1,6 @@
 <template>
   <div class="Titulo">
+    <!-- Muestro el titulo cargado en el store.sate mediante el prop que recibe este componente -->
     <h1>{{ msg }}</h1>
   </div>
 </template>
@@ -15,7 +16,7 @@ export default defineComponent({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 
 </style>

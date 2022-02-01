@@ -5,17 +5,16 @@ import mapboxgl from "mapbox-gl";
 
 
 export const usePlacesStore = () =>{
-
+    /** La store que uso en la app, dependiendo del tamaño de esta pueden haber mas para organizar el proyecto, 
+      tratandose de un proyecto pequeño solo he usado una store para toda la app. */
     const store = useStore<StateInterface>();
 
     onMounted( () => {
         if ( !store.getters['places/isUserlocationReady']){
             store.dispatch('places/getUserLocation')
         }
-
-        
-
     })
+    //Si el usuario NO esta geolocalizado lo geolocaliza.
 
     return{
         //state
@@ -25,7 +24,7 @@ export const usePlacesStore = () =>{
         users: computed(() => store.state.places.users),
         mapa: computed(() => store.state.places.mapa),
         marcadores: computed(() => store.state.places.marcadores),
-        error: computed(() => store.state.places.error),
+        mensaje: computed(() => store.state.places.mensaje),
 
 
         //getters
@@ -36,7 +35,7 @@ export const usePlacesStore = () =>{
         setUser: (user: any) => store.commit('places/setUsers', user) ,
         setMapa: ( mapa: mapboxgl.Map) => store.commit('places/setMapa', mapa),
         setUserMarkers: ( users: any) => store.commit('places/setUserMarkers', users),
-        setError: (error: boolean) => store.commit('places/setError', error),
+        setMensaje: (error: string) => store.commit('places/setMensaje', error),
 
 
     }

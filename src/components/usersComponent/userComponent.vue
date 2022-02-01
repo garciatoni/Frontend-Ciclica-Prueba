@@ -1,6 +1,5 @@
 <script lang="ts" src="./userComponent.ts"></script>
 
-
 <template>
     <div class="menuUsers d-flex ms-3 mt-2">
         <div class="scrollBar">
@@ -18,7 +17,9 @@
         </div>
     </div>
 </template>
-
+<!-- Este componente esta separado el template del script
+Aqui muestro todos los users de la app (nombres, id, cordenadas) mediante el v-for y los usuarios guardados en la store. 
+Tambien doy unos estilos muy sencillos al menu de usuarios-->
 <style scoped>
 .menuUsers{
     z-index: 999;

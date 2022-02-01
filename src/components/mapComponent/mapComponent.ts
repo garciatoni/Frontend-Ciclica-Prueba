@@ -10,11 +10,11 @@ export default defineComponent({
     },
     setup(){
 
-        const { isUserlocationReady, userLocation, users, setMapa, setUserMarkers, marcadores } = usePlacesStore();
+        const { isUserlocationReady, userLocation, users, setMapa, setUserMarkers, marcadores, mapa } = usePlacesStore();
 
-
+        //Función que inicia el mapa
         const iniciarMapa = async () => {
-            //Compruebo que existen las cordenadas de la ubicacion del usuario, de lo aviso con un error.
+            //Compruebo que existen las cordenadas de la ubicacion del usuario, de lo contrario aviso con un error.
             if ( !userLocation.value) throw new Error('No existe la localizacion del usuario');
 
             //Pongo esto para que la resolucion del mapa se cargue correctamente.
@@ -33,14 +33,27 @@ export default defineComponent({
                 marcador.addTo( map )
             });
 
+            //Añado navegacion basica al mapa
             map.addControl(new mapboxgl.NavigationControl());
 
             //guardo el mapa en vuex para usarlo en otros componentes.
             setMapa( map );
 
+            //Selector de capas
+            const layerList = document.getElementById('menu');
+            const inputs = layerList!.getElementsByTagName('input');
+            for(let a=0;a<inputs.length;a++){
+                inputs[a].onclick = (layer: any) => {
+                    const layerId = layer.target.id;
+                    map.setStyle('mapbox://styles/mapbox/' + layerId);
+                };
+            }
         }
 
-        //Si la ubicacion del usuario existe, carga el mapa
+
+
+
+        //Si la ubicacion del usuario existe, carga el mapa, junto a los marcadores de cada usuario
         onMounted(() => {
             if ( isUserlocationReady.value ) 
                 iniciarMapa();
@@ -48,15 +61,16 @@ export default defineComponent({
             
         });
 
-        //Si la ubicacion del usuario existe, carga el mapa
+        //Si la ubicacion del usuario existe, carga el mapa, junto a los marcadores de cada usuario
         watch (isUserlocationReady, () => {
             if ( isUserlocationReady.value ) iniciarMapa();
             setUserMarkers(users.value)
+            
 
         })
 
         return {
-            isUserlocationReady          
+            isUserlocationReady,        
         }
     }
 });

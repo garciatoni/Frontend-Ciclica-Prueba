@@ -16,5 +16,8 @@ const actions: ActionTree<PlacesState, StateInterface> = {
     },  
 };
 
+//Acción que llamo cuando se carga la app para geolocalizar al usuario.
+//De esta forma el mapa aparece centrado en su posición
+
 
 export default actions;

@@ -18,8 +18,8 @@ const mutation: MutationTree<PlacesState> = {
         state.titulo = titulo;
     },
 
-    setError(state, error: boolean){
-        state.error = error;
+    setMensaje(state, mensaje: string){
+        state.mensaje = mensaje;
     },
 
     //Guardo usuarios en el state
@@ -32,6 +32,9 @@ const mutation: MutationTree<PlacesState> = {
         state.mapa = mapa
     },
 
+    /*Guardo los marcadores para cada usuario, asi nada mas entrar en la app se ven 2 marcadores (1 para cada usuario) y a medida 
+    que se van añadiendo usuarios se colocan sus respectivos marcadores con sus posiciones, al clicar en un usuario se desplaza 
+    automaticamente a su marcador*/
     setUserMarkers(state, users: any){
 
         //Borro los marcadores antiguos
@@ -42,12 +45,14 @@ const mutation: MutationTree<PlacesState> = {
         for (const user of users){
             const [ lng, lat ] = user.Cordenadas ;
 
+            //Creación de popup
             const Popup = new mapboxgl.Popup().setLngLat([ lng, lat ])
             .setHTML(`
             <h3>${user.Nombre}</h3>
             <h4>Id: ${user.id}</h4>
             <p>Coords: ${user.Cordenadas}</p>
             `)
+            //Creación del marcador
             const marcador = new mapboxgl.Marker().setLngLat([ lng, lat ]).setPopup(Popup)
             state.marcadores.push( marcador );
 

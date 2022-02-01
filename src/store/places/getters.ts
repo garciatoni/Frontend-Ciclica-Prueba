@@ -16,8 +16,10 @@ const getters: GetterTree<PlacesState, StateInterface> = {
     getMapa(state){
         return !!state.mapa;
     }
+
+
 }
 
-
+//Getters 
 
 export default getters;

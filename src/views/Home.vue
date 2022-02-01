@@ -1,7 +1,10 @@
 <template>
   <div class="home">
+
+    <!-- Paso por props el titulo al componente -->
     <Titulo :msg="titulo"/>
 
+    <!-- Llamo al componente mapa -->
     <div class="Mapa">
       <MapComponent /> 
     </div>
@@ -11,8 +14,10 @@
 </template>
 
 <script lang="ts">
+
+//Distintas importaciones
 import { defineComponent } from 'vue';
-import Titulo from '@/components/titulo.vue'; // @ is an alias to /src
+import Titulo from '@/components/titulo.vue';
 import { usePlacesStore } from '@/composables/usePlacesStore';
 import MapComponent from '@/components/mapComponent/mapComponent.vue'
 
@@ -26,8 +31,10 @@ export default defineComponent({
   },
   setup(){
 
+    //Defino titulo del store
     const { titulo } = usePlacesStore();
 
+    //Le digo a la vista home que use mi store de Typescript.
     usePlacesStore();
   
     return{

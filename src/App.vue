@@ -28,3 +28,5 @@
   color: #25043b;
 }
 </style>
+
+<!-- Tratandose de una app muy basica he creido conveniente dejar el menu de navegación que trae por defecto vue-->

@@ -1,10 +1,14 @@
 import { usePlacesStore } from '@/composables/usePlacesStore';
-import mapboxgl from 'mapbox-gl';
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent } from 'vue';
+
+/**Scrip de userComponent.vue, he optado por separlo para demostrar que se trabajar de ambas maneras, a lo personal me resulta mas comoda esta forma
+ * de trabajo.
+ */
 
 export default defineComponent({
     name: 'userComponent',
     setup(){
+
 
         const { users:{value}, mapa } = usePlacesStore();
         const users = value;
